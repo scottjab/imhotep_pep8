@@ -4,7 +4,7 @@ import re
 
 class Pep8Linter(Tool):
     regex = re.compile(r'(?P<filename>.*):(?P<line_num>\d+):\d+: (?P<message>.*)')
-    def invoke(self, dirname, filenames=set()):
+    def invoke(self, dirname, filenames=set(), linter_configs=set()):
         retval = defaultdict(lambda: defaultdict(list))
 
         cmd = 'find %s -name "*.py" | xargs pep8' % dirname
